@@ -30,7 +30,7 @@ jobs:
 
       - name: Get latest SHA and compare
         run: |
-          RESPONSE=$(curl -s -H "User-Agent: GitHub-Action" "https://api.github.com/repos/Zziniswell/Adguard-gallery-filter/contents/DNS.txt")
+          RESPONSE=$(curl -s "https://api.github.com/repos/Zziniswell/Adguard-gallery-filter/contents/DNS.txt")
           LATEST_SHA=$(echo "$RESPONSE" | jq -r '.sha')
           
           if [ -f last_sha.txt ]; then
@@ -39,10 +39,10 @@ jobs:
             OLD_SHA="none"
           fi
 
-          echo "$LATEST_SHA" > last_sha.txt
-
           echo "OLD_SHA: $OLD_SHA"
           echo "LATEST_SHA: $LATEST_SHA"
+
+          echo "$LATEST_SHA" > last_sha.txt
           
           if [ "$OLD_SHA" = "none" ]; then
             echo "This is the first run."
