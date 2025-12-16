@@ -28,21 +28,21 @@ jobs:
           restore-keys: |
             file-sha-
 
-      - name: Get latest SHA from external repo
+      - name: Get latest SHA and compare
         run: |
-          LATEST_SHA=$(curl -s "https://api.github.com/repos/Zziniswell/Adguard-gallery-filter/contents/DNS.txt" | jq -r '.sha')
-          echo "LATEST_SHA=$LATEST_SHA" >> $GITHUB_ENV
+          RESPONSE=$(curl -s -H "User-Agent: GitHub-Action" "https://api.github.com/repos/Zziniswell/Adguard-gallery-filter/contents/DNS.txt")
+          LATEST_SHA=$(echo "$RESPONSE" | jq -r '.sha')
           
           if [ -f last_sha.txt ]; then
             OLD_SHA=$(cat last_sha.txt)
           else
             OLD_SHA="none"
           fi
-          echo "OLD_SHA=$OLD_SHA" >> $GITHUB_ENV
 
-      - name: Compare SHA and Fail if changed
-        run: |
-          echo "Current Hash: $LATEST_SHA" > last_sha.txt
+          echo "$LATEST_SHA" > last_sha.txt
+
+          echo "OLD_SHA: $OLD_SHA"
+          echo "LATEST_SHA: $LATEST_SHA"
           
           if [ "$OLD_SHA" = "none" ]; then
             echo "This is the first run."
