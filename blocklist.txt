@@ -1,1 +1,3 @@
-
+# kamp.kakao.com
+# play.kakao.com
+shortformstats.kakao.com
