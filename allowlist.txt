@@ -1,7 +1,7 @@
 ad-creative.pstatic.net
-action.adoffice.11st.co.kr
 adshnk.com
 adtouch.adbrix.io
+api-ao.adison.co
 dadispapi.gmarket.co.kr
 sdk.airbridge.io
 searchad-phinf.pstatic.net
