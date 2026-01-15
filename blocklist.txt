@@ -1,4 +1,1 @@
-kamp.kakao.com
-shortformstats.kakao.com
-trillion.toss.im
-veta.naver.com
+
