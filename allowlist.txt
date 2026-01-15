@@ -1,8 +1,1 @@
-ad-creative.pstatic.net
-adshnk.com
-adtouch.adbrix.io
-api-ao.adison.co
-dadispapi.gmarket.co.kr
-sdk.airbridge.io
-searchad-phinf.pstatic.net
-tivan.naver.com
+
